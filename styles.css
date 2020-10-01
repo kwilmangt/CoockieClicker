@@ -1,0 +1,39 @@
+body {
+    text-align: center;
+
+}
+h2 {
+    color: blue;
+    text-decoration: underline;
+    font-size: 30px;
+}
+h3 {
+    color: blue;
+    font-size: 20px;
+}
+.shrink {
+    transform: scale(0.8);
+}
+
+.remove {
+    display: none;
+
+}
+.hide {
+    visibility: hidden;
+}
+.winBackground {
+    background-color:yellow;
+    border-color: blue;
+    border-width:10px;
+    border-style: groove;
+}
+.background1 {
+    background-color:red
+}
+.background2 {
+    background-color:green;
+}
+/* 2 buttos- show/remove - remove class
+2 buttins- display/hide - hide class
+*/
