@@ -9,6 +9,7 @@ let celebration = document.getElementById('celebration')
 let secondButton = document.getElementById('second')
 let cookie2El = document.getElementById('cookie2')
 let spacebar = document.getElementById('spacebar')
+let autoButton = document.getElementById('auto')
 
 function cookieClicked(){
     clickCount = clickCount + countChange
@@ -19,8 +20,11 @@ function cookieClicked(){
             doublerButton.classList.remove('remove')
         }
     }
-    if (clickCount === 20) {
+    if (clickCount >= 20) {
         secondButton.classList.remove('remove')
+    }
+    if (clickCount >= 30) {
+        autoButton.classList.remove('remove')
     }
     if (clickCount % 2 == 0) {
         background.classList.add('background2')
@@ -46,7 +50,7 @@ function cookieClicked(){
     else
         celebration.classList.add('remove')
         
-    if (clickCount > 50) {
+    if (clickCount >= 50) {
         win.classList.remove('remove')
         celebration.classList.add('remove')
         background.classList.add('winBackground')
@@ -66,6 +70,14 @@ document.body.onkeyup = function (e) {
 }
 secondButton.addEventListener('click', document.body.onkeyup)
 
+function addInterval () {
+    autoButton.classList.add('remove')
+    window.setInterval(addInterval, 2000)
+    clickCount = clickCount + 1
+    scoreEl.innerHTML = clickCount
+}
+autoButton.addEventListener('click', addInterval)
+    
 
 function buyDoubler () {
     clickCount = clickCount - 10
