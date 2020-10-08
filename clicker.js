@@ -22,33 +22,25 @@ function cookieClicked(){
     scoreEl.innerHTML = clickCount
 
 
-    // if (clickCount % 5 == 0) {
-    //     x = getRandomInt(4)+1
-    //     if (x===1){
-    //         cookieEl.classList.remove('remove')
-    //         cookie2El.classList.add('remove')
-    //         cookie3El.classList.add('remove')
-    //         cookie4El.classList.add('remove')
-    //     }
-    //     if (x===2){
-    //         cookieEl.classList.add('remove')
-    //         cookie2El.classList.remove('remove')
-    //         cookie3El.classList.add('remove')
-    //         cookie4El.classList.add('remove')
-    //     }
-    //     if (x===3){
-    //         cookieEl.classList.add('remove')
-    //         cookie2El.classList.add('remove')
-    //         cookie3El.classList.remove('remove')
-    //         cookie4El.classList.add('remove')
-    //     }
-    //     if (x===4){
-    //         cookieEl.classList.add('remove')
-    //         cookie2El.classList.add('remove')
-    //         cookie3El.classList.add('remove')
-    //         cookie4El.classList.remove('remove')
-    //     }
-    // }
+    if (clickCount % 5 == 0) {
+        x = getRandomInt(4)
+        cookieEl.classList.add('remove')
+        cookie2El.classList.add('remove')
+        cookie3El.classList.add('remove')
+        cookie4El.classList.add('remove')
+        if (x===0){
+            cookieEl.classList.remove('remove')
+        }
+        if (x===1){
+            cookie2El.classList.remove('remove')
+        }
+        if (x===2){
+            cookie3El.classList.remove('remove')
+        }
+        if (x===3){
+            cookie4El.classList.remove('remove')
+        }
+    }
     if (clickCount === 10) {
         if (countChange === 1) {
             doublerButton.classList.remove('remove')
