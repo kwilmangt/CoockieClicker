@@ -1,4 +1,7 @@
 let cookieEl = document.getElementById('cookie')
+let cookie2El = document.getElementById('cookie2')
+let cookie3El = document.getElementById('cookie3')
+let cookie4El = document.getElementById('cookie4')
 let clickCount = 0
 let scoreEl = document.getElementById('score')
 let doublerButton = document.getElementById('doubler')
@@ -7,14 +10,45 @@ let win = document.getElementById('win')
 let background = document.getElementById('background')
 let celebration = document.getElementById('celebration')
 let secondButton = document.getElementById('second')
-let cookie2El = document.getElementById('cookie2')
+let cookieExtraEl = document.getElementById('cookieExtra')
 let spacebar = document.getElementById('spacebar')
 let autoButton = document.getElementById('auto')
-
+let x = document.getElementById('x')
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max))
+}
 function cookieClicked(){
     clickCount = clickCount + countChange
     scoreEl.innerHTML = clickCount
 
+
+    // if (clickCount % 5 == 0) {
+    //     x = getRandomInt(4)+1
+    //     if (x===1){
+    //         cookieEl.classList.remove('remove')
+    //         cookie2El.classList.add('remove')
+    //         cookie3El.classList.add('remove')
+    //         cookie4El.classList.add('remove')
+    //     }
+    //     if (x===2){
+    //         cookieEl.classList.add('remove')
+    //         cookie2El.classList.remove('remove')
+    //         cookie3El.classList.add('remove')
+    //         cookie4El.classList.add('remove')
+    //     }
+    //     if (x===3){
+    //         cookieEl.classList.add('remove')
+    //         cookie2El.classList.add('remove')
+    //         cookie3El.classList.remove('remove')
+    //         cookie4El.classList.add('remove')
+    //     }
+    //     if (x===4){
+    //         cookieEl.classList.add('remove')
+    //         cookie2El.classList.add('remove')
+    //         cookie3El.classList.add('remove')
+    //         cookie4El.classList.remove('remove')
+    //     }
+    // }
     if (clickCount === 10) {
         if (countChange === 1) {
             doublerButton.classList.remove('remove')
@@ -62,7 +96,7 @@ function cookieClicked(){
 document.body.onkeyup = function (e) {
     scoreEl.innerHTML = clickCount
     secondButton.classList.add('remove')
-    cookie2El.classList.remove('remove')
+    cookieExtraEl.classList.remove('remove')
     spacebar.classList.remove('remove')
     if(e.keyCode == 32){
     clickCount = clickCount + 1
@@ -72,12 +106,15 @@ secondButton.addEventListener('click', document.body.onkeyup)
 
 function addInterval () {
     autoButton.classList.add('remove')
-    window.setInterval(addInterval, 2000)
-    clickCount = clickCount + 1
-    scoreEl.innerHTML = clickCount
+    window.setInterval(beginInterval, 2000)
+
 }
 autoButton.addEventListener('click', addInterval)
     
+function beginInterval () {
+        clickCount = clickCount + 1
+    scoreEl.innerHTML = clickCount
+}
 
 function buyDoubler () {
     clickCount = clickCount - 10
